@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package api.book.v1;
+
+option java_package = "com.book.v1";
+option java_multiple_files = true;
+option java_outer_classname = "BookProto";
+
+option go_package = "github.com/eugene-bert/docker-buf/api/book/v1;book";
+
+import "google/api/client.proto";
+import "google/api/field_behavior.proto";
+import "google/api/annotations.proto";
+import "google/api/resource.proto";
+import "validate/validate.proto";
+
+service BookService {
+  rpc GetBook(GetBookRequest) returns (GetBookResponse) {
+    option (google.api.http) = {
+      get: "/v1/{name=publishers/*/books/*}"
+    };
+    option (google.api.method_signature) = "name";
+  }
+}
+
+message GetBookRequest {
+  // The name of the book to retrieve.
+  // Format: publishers/{publisher}/books/{book}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "library.googleapis.com/Book"
+    }];
+}
+
+// A representation of a book.
+message GetBookResponse {
+  // Other fields...
+
+  // Possible formats in which the book may be published.
+  enum Format {
+    // Default value. This value is unused.
+    FORMAT_UNSPECIFIED = 0;
+
+    // The printed format, in hardback.
+    FORMAT_HARDBACK = 1;
+
+    // The printed format, in paperback.
+    FORMAT_PAPERBACK = 2;
+
+    // An electronic book format.
+    FORMAT_EBOOK = 3;
+
+    // An audio recording.
+    FORMAT_AUDIOBOOK = 4;
+  }
+
+  // The format of the book.
+  Format format = 1;
+
+  // The name of the book
+  string name = 2 [(google.api.field_behavior) = REQUIRED, (validate.rules).string.min_bytes = 1 ];
+
+  // Other fields...
+}
