@@ -36,6 +36,7 @@ $ make docker-buf
 ├── buf.work.yaml 
 ├── buf.yaml
 ├── Dockerfile
+├── docker-compose.yaml
 ├── License.md
 ├── Makefile
 └── README.md
