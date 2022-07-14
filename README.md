@@ -32,6 +32,7 @@ $ make docker-buf
 |   └── generated
 |      └── template.gotmpl      # doc api template
 ├── .gitignore
+├── book.config.swagger.yaml   # swagger config file
 ├── buf.gen.yaml 
 ├── buf.work.yaml 
 ├── buf.yaml
