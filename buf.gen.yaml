@@ -1,24 +1,51 @@
 version: v1
 plugins:
+  # ##############################################################################
+  #  protoc-gen-go
+  #  https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go
+  # #############################################################################
   - name: go
     out: .
     opt:
       - paths=source_relative
+  # ##############################################################################
+  #  protoc-gen-go-grpc
+  #  https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc#section-readme
+  # #############################################################################
   - name: go-grpc
     out: .
     opt:
       - paths=source_relative
+  ##############################################################################
+  #  protoc-gen-validate (PGV)
+  #  https://github.com/envoyproxy/protoc-gen-validate
+  # #############################################################################
   - name: validate
     out: .
     opt:
       - lang=go
       - paths=source_relative
+  # ##############################################################################
+  #  gRPC-Gateway grpc-gateway & openapi
+  #  https://github.com/grpc-ecosystem/grpc-gateway
+  #  https://buf.build/grpc-ecosystem/plugins/openapiv2
+  #  https://buf.build/grpc-ecosystem/plugins/grpc-gateway
+  # #############################################################################
   - name: grpc-gateway
     out: .
     opt:
       - paths=source_relative
   - name: openapiv2
     out: .
+    opt:
+      - output_format=yaml
+      - allow_merge=true
+      - merge_file_name=book
+    strategy: all
+  # ##############################################################################
+  #  protoc-gen-doc
+  #  https://github.com/pseudomuto/protoc-gen-doc
+  # #############################################################################
   - name: doc
     out: docs/generated/
     opt: docs/generated/template.gotmpl,book.md
