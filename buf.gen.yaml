@@ -38,9 +38,10 @@ plugins:
   - name: openapiv2
     out: .
     opt:
-      - output_format=yaml
+      - output_format=json
       - allow_merge=true
       - merge_file_name=book
+      - openapi_configuration=book.config.swagger.yaml
     strategy: all
   # ##############################################################################
   #  protoc-gen-doc

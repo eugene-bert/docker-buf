@@ -1,0 +1,22 @@
+# ##############################################################################
+#  openApi config example
+#  https://github.com/grpc-ecosystem/grpc-gateway/blob/bb2225c08f5f8ff7ed3935b68cfcbb1538af6475/examples/internal/proto/examplepb/unannotated_echo_service.swagger.yaml
+#  openApi specification: https://swagger.io/specification/
+# #############################################################################
+openapiOptions:
+  file:
+    # the file name must be the same as one passed to protoc when generating generating .swagger.json
+    - file: "api/book/v1/book.proto"
+      option:
+        info:
+          title: Book api
+          contact:
+            name: Docker buf project
+            url: https://github.com/eugene-bert/docker-buf
+          license:
+            name: MIT License
+            url: https://github.com/eugene-bert/docker-buf/blob/main/License.md
+          version: "1.0"
+        externalDocs:
+          description: More about Docker buf
+          url: https://github.com/eugene-bert/docker-buf
