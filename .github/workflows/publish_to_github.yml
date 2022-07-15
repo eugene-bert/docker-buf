@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
 
 jobs:
   publish-docker-buf-image:
-    if: "contains(github.event.head_commit.message, 'feat')"
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,5 +23,5 @@ jobs:
 
       - name: Build the docker-buf Docker image
         run: |
-          docker build --file Dockerfile . --tag ghcr.io/eugene-bert/docker-buf:latest        
-          docker push ghcr.io/eugene-bert/docker-buf:latest
+          docker build --file Dockerfile . --tag ghcr.io/eugene-bert/docker-buf:${GITHUB_REF#refs/*/}      
+          docker push ghcr.io/eugene-bert/docker-buf:${GITHUB_REF#refs/*/}

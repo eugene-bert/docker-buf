@@ -1,4 +1,4 @@
-# docker-hub
+# docker-buf
 
 Extended docker [bufbuild](https://docs.buf.build/installation#using-the-docker-image) functionality based on [bufbuild/buf docker image](https://hub.docker.com/r/bufbuild/buf)
 
@@ -46,3 +46,14 @@ $ make docker-buf
 - [buf-gen-yaml](https://docs.buf.build/configuration/v1/buf-gen-yaml)
 - [buf-work-yaml](https://docs.buf.build/configuration/v1/buf-work-yaml)
 - [buf-yaml](https://docs.buf.build/configuration/v1/buf-yaml)
+
+### Bufbuild installation & configuration for local development
+
+1. Installation: https://docs.buf.build/installation
+2. ```make buf-build```
+3. To make your editor recognize Buf modules(external library) follow this instructions: https://docs.buf.build/editor-integration
+
+To compile proto files for the application, run the following command (_can be run without bufbuild configured locally_):
+```
+make docker-buf
+```

@@ -14,12 +14,7 @@ RUN go install github.com/envoyproxy/protoc-gen-validate@latest
 
 FROM bufbuild/buf:1.6.0 as buf
 
-FROM alpine:3.16.0 as alpine
-
-LABEL org.opencontainers.image.source="https://github.com/eugene-bert/docker-buf"
-
 COPY --from=golang /go/bin /go/bin
-COPY --from=buf /usr/local/bin/buf /usr/local/bin/buf
 
 ENV PATH="/go/bin:${PATH}"
 
