@@ -12,9 +12,19 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 RUN go install github.com/envoyproxy/protoc-gen-validate@latest
 
+FROM node:alpine as node
+
+WORKDIR /usr/app
+COPY package.json /usr/app/package.json
+RUN npm install
+
 FROM bufbuild/buf:1.6.0 as buf
 
 COPY --from=golang /go/bin /go/bin
+COPY --from=node /usr/app/node_modules /node_modules
+COPY --from=node /usr/local/bin /usr/local/bin
+
+RUN apk add --no-cache libstdc++
 
 ENV PATH="/go/bin:${PATH}"
 

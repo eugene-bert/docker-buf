@@ -51,3 +51,21 @@ plugins:
     out: docs/generated/
     opt: docs/generated/template.gotmpl,book.md
     strategy: all
+  # ##############################################################################
+  # protoc-gen-ts_proto
+  # https://www.npmjs.com/package/ts-proto
+  # ##############################################################################
+  - name: grpc
+    path: node_modules/.bin/protoc-gen-ts_proto
+    out: packages/api-book-grpc/nodejs/src/protobuf
+    strategy: all
+    opt:
+      - env=node
+      - esModuleInterop=true
+      - oneof=unions
+      - onlyTypes=false
+      - outputEncodeMethods=true
+      - outputJsonMethods=false
+      - outputPartialMethods=false
+      - outputServices=grpc-js
+      - unrecognizedEnum=false

@@ -1,0 +1,32 @@
+{
+  "name": "api-book-grpc",
+  "version": "0.0.1",
+  "description": "Client library for interacting with the Api book service over gRPC from server-side Node.js applications",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugene-bert/docker-buf.git",
+    "directory": "packages/grpc"
+  },
+  "homepage": "https://github.com/eugene-bert/docker-buf",
+  "bugs": {
+    "url": "https://github.com/eugene-bert/docker-buf/issues"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">= 14"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/**/*.d.ts",
+    "lib/**/*.d.ts.map",
+    "lib/**/*.js",
+    "lib/**/*.js.map",
+    "src/**/*.ts"
+  ],
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.10",
+    "long": "^4.0.0",
+    "protobufjs": "^6.11.3"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.3",
+    "ts-proto": "^1.122.0",
+    "@grpc/grpc-js": "^1.6.10"
+  }
+}

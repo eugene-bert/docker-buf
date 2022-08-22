@@ -1,0 +1,125 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Book api",
+    "version": "1.0",
+    "contact": {
+      "name": "Docker buf project",
+      "url": "https://github.com/eugene-bert/docker-buf"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://github.com/eugene-bert/docker-buf/blob/main/License.md"
+    }
+  },
+  "tags": [
+    {
+      "name": "BookService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/{name}": {
+      "get": {
+        "operationId": "BookService_GetBook",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetBookResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "description": "The name of the book to retrieve.\nFormat: publishers/{publisher}/books/{book}",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "pattern": "publishers/[^/]+/books/[^/]+"
+          }
+        ],
+        "tags": [
+          "BookService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetBookResponseFormat": {
+      "type": "string",
+      "enum": [
+        "FORMAT_UNSPECIFIED",
+        "FORMAT_HARDBACK",
+        "FORMAT_PAPERBACK",
+        "FORMAT_EBOOK",
+        "FORMAT_AUDIOBOOK"
+      ],
+      "default": "FORMAT_UNSPECIFIED",
+      "description": "Possible formats in which the book may be published.\n\n - FORMAT_UNSPECIFIED: Default value. This value is unused.\n - FORMAT_HARDBACK: The printed format, in hardback.\n - FORMAT_PAPERBACK: The printed format, in paperback.\n - FORMAT_EBOOK: An electronic book format.\n - FORMAT_AUDIOBOOK: An audio recording."
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1GetBookResponse": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "$ref": "#/definitions/GetBookResponseFormat",
+          "description": "The format of the book."
+        },
+        "name": {
+          "type": "string",
+          "title": "The name of the book",
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "description": "A representation of a book.",
+      "required": [
+        "name"
+      ]
+    }
+  },
+  "externalDocs": {
+    "description": "More about Docker buf",
+    "url": "https://github.com/eugene-bert/docker-buf"
+  }
+}
