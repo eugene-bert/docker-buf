@@ -11,6 +11,7 @@ Extended docker [bufbuild](https://docs.buf.build/installation#using-the-docker-
 - [protoc-gen-go](google.golang.org/protobuf/cmd/protoc-gen-go)
 - [protoc-gen-go-grpc](google.golang.org/grpc/cmd/protoc-gen-go-grpc)
 - [protoc-gen-validate](github.com/envoyproxy/protoc-gen-validate)
+- [protoc-gen-ts_proto](https://www.npmjs.com/package/ts-proto)
 
 
 ## Usage
