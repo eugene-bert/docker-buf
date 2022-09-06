@@ -3,14 +3,14 @@
 Extended docker [bufbuild](https://docs.buf.build/installation#using-the-docker-image) functionality based on [bufbuild/buf docker image](https://hub.docker.com/r/bufbuild/buf)
 
 ### Plugins included: 
-- [gRPC-Go](google.golang.org/grpc)
+- [gRPC-Go](https://google.golang.org/grpc)
 - [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc)
 - [protoc-gen-go](https://pkg.go.dev/github.com/golang/protobuf/protoc-gen-go)
-- [protoc-gen-grpc-gateway](github.com/grpc-ecosystem/grpc-gateway)
-- [protoc-gen-openapiv2](github.com/grpc-ecosystem/grpc-gateway)
-- [protoc-gen-go](google.golang.org/protobuf/cmd/protoc-gen-go)
-- [protoc-gen-go-grpc](google.golang.org/grpc/cmd/protoc-gen-go-grpc)
-- [protoc-gen-validate](github.com/envoyproxy/protoc-gen-validate)
+- [protoc-gen-grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
+- [protoc-gen-openapiv2](https://github.com/grpc-ecosystem/grpc-gateway)
+- [protoc-gen-go](https://google.golang.org/protobuf/cmd/protoc-gen-go)
+- [protoc-gen-go-grpc](https://google.golang.org/grpc/cmd/protoc-gen-go-grpc)
+- [protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate)
 - [protoc-gen-ts_proto](https://www.npmjs.com/package/ts-proto)
 
 
