@@ -92,6 +92,7 @@
         "details": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
         }
@@ -106,13 +107,10 @@
         },
         "name": {
           "type": "string",
-          "title": "The name of the book",
-          "required": [
-            "name"
-          ]
+          "title": "The name of the book"
         }
       },
-      "description": "A representation of a book.",
+      "description": "A representation of a book.\n\nOther fields...",
       "required": [
         "name"
       ]

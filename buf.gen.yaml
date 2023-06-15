@@ -8,6 +8,7 @@ plugins:
     out: .
     opt:
       - paths=source_relative
+
   # ##############################################################################
   #  protoc-gen-go-grpc
   #  https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc#section-readme
@@ -16,6 +17,7 @@ plugins:
     out: .
     opt:
       - paths=source_relative
+
   ##############################################################################
   #  protoc-gen-validate (PGV)
   #  https://github.com/envoyproxy/protoc-gen-validate
@@ -25,6 +27,8 @@ plugins:
     opt:
       - lang=go
       - paths=source_relative
+
+
   # ##############################################################################
   #  gRPC-Gateway grpc-gateway & openapi
   #  https://github.com/grpc-ecosystem/grpc-gateway
@@ -43,6 +47,7 @@ plugins:
       - merge_file_name=book
       - openapi_configuration=book.config.swagger.yaml
     strategy: all
+
   # ##############################################################################
   #  protoc-gen-doc
   #  https://github.com/pseudomuto/protoc-gen-doc
@@ -51,6 +56,7 @@ plugins:
     out: docs/generated/
     opt: docs/generated/template.gotmpl,book.md
     strategy: all
+
   # ##############################################################################
   # protoc-gen-ts_proto
   # https://www.npmjs.com/package/ts-proto
@@ -69,3 +75,13 @@ plugins:
       - outputPartialMethods=false
       - outputServices=grpc-js
       - unrecognizedEnum=false
+
+  # ##############################################################################
+  #  protoc-gen-grpc-web
+  #  https://github.com/grpc/grpc-web
+  # #############################################################################
+  - name: grpc-web
+    out: .
+    opt:
+      - import_style=typescript
+      - mode=grpcweb

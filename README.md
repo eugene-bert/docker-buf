@@ -12,7 +12,7 @@ Extended docker [bufbuild](https://docs.buf.build/installation#using-the-docker-
 - [protoc-gen-go-grpc](https://google.golang.org/grpc/cmd/protoc-gen-go-grpc)
 - [protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate)
 - [protoc-gen-ts_proto](https://www.npmjs.com/package/ts-proto)
-
+- [protoc-gen-grpc-web](https://github.com/grpc/grpc-web)
 
 ## Usage
 

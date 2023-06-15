@@ -4,8 +4,9 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@grpc/grpc-js": "^1.6.10",
     "@tsconfig/node14": "^1.0.3",
     "ts-proto": "^1.122.0",
-    "@grpc/grpc-js": "^1.6.10"
+    "protoc-gen-grpc-web": "^1.4.2"
   }
 }
