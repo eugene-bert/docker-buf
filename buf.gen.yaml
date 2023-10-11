@@ -4,7 +4,7 @@ plugins:
   #  protoc-gen-go
   #  https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go
   # #############################################################################
-  - name: go
+  - plugin: go
     out: .
     opt:
       - paths=source_relative
@@ -13,7 +13,7 @@ plugins:
   #  protoc-gen-go-grpc
   #  https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc#section-readme
   # #############################################################################
-  - name: go-grpc
+  - plugin: go-grpc
     out: .
     opt:
       - paths=source_relative
@@ -22,7 +22,7 @@ plugins:
   #  protoc-gen-validate (PGV)
   #  https://github.com/envoyproxy/protoc-gen-validate
   # #############################################################################
-  - name: validate
+  - plugin: validate
     out: .
     opt:
       - lang=go
@@ -35,7 +35,7 @@ plugins:
   #  https://buf.build/grpc-ecosystem/plugins/openapiv2
   #  https://buf.build/grpc-ecosystem/plugins/grpc-gateway
   # #############################################################################
-  - name: grpc-gateway
+  - plugin: grpc-gateway
     out: .
     opt:
       - paths=source_relative
@@ -52,7 +52,7 @@ plugins:
   #  protoc-gen-doc
   #  https://github.com/pseudomuto/protoc-gen-doc
   # #############################################################################
-  - name: doc
+  - plugin: doc
     out: docs/generated/
     opt: docs/generated/template.gotmpl,book.md
     strategy: all
@@ -61,7 +61,7 @@ plugins:
   # protoc-gen-ts_proto
   # https://www.npmjs.com/package/ts-proto
   # ##############################################################################
-  - name: grpc
+  - plugin: grpc
     path: node_modules/.bin/protoc-gen-ts_proto
     out: packages/api-book-grpc/nodejs/src/protobuf
     strategy: all
@@ -80,8 +80,17 @@ plugins:
   #  protoc-gen-grpc-web
   #  https://github.com/grpc/grpc-web
   # #############################################################################
-  - name: grpc-web
+  - plugin: grpc-web
     out: .
     opt:
       - import_style=typescript
       - mode=grpcweb
+  # ##############################################################################
+  #  https://buf.build/grpc/python
+  #  https://buf.build/protocolbuffers/python
+  # #############################################################################
+  - plugin: buf.build/grpc/python:v1.58.1
+    out: packages/api-book-grpc/python
+  - plugin: buf.build/protocolbuffers/python
+    out: packages/api-book-grpc/python
+

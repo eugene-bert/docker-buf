@@ -1,4 +1,4 @@
-FROM golang:1.18-alpine as golang
+FROM golang:1.19-alpine as golang
 
 ENV GOOS=linux GOARCH=amd64 CGO_ENABLED=0 GO111MODULE=auto
 
@@ -20,7 +20,7 @@ WORKDIR /usr/app
 COPY package.json /usr/app/package.json
 RUN npm install
 
-FROM bufbuild/buf:1.6.0 as buf
+FROM bufbuild/buf:latest as buf
 
 COPY --from=golang /go/bin /go/bin
 COPY --from=node /usr/app/node_modules /node_modules
