@@ -798,24 +798,26 @@ var File_api_book_v1_book_proto protoreflect.FileDescriptor
 
 const file_api_book_v1_book_proto_rawDesc = "" +
 	"\n" +
-	"\x16api/book/v1/book.proto\x12\vapi.book.v1\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x17validate/validate.proto\"J\n" +
-	"\x0eGetBookRequest\x128\n" +
-	"\x04name\x18\x01 \x01(\tB$\xe2A\x01\x02\xfaA\x1d\n" +
-	"\x1blibrary.googleapis.com/BookR\x04name\"\xff\x01\n" +
-	"\x04Book\x12\x1f\n" +
-	"\x04name\x18\x01 \x01(\tB\v\xe2A\x01\x02\xfaB\x04r\x02 \x01R\x04name\x12\x1a\n" +
-	"\x05title\x18\x02 \x01(\tB\x04\xe2A\x01\x02R\x05title\x12\x16\n" +
+	"\x16api/book/v1/book.proto\x12\vapi.book.v1\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x17validate/validate.proto\"I\n" +
+	"\x0eGetBookRequest\x127\n" +
+	"\x04name\x18\x01 \x01(\tB#\xe0A\x02\xfaA\x1d\n" +
+	"\x1blibrary.googleapis.com/BookR\x04name\"\xfd\x01\n" +
+	"\x04Book\x12\x1e\n" +
+	"\x04name\x18\x01 \x01(\tB\n" +
+	"\xe0A\x02\xfaB\x04r\x02 \x01R\x04name\x12\x19\n" +
+	"\x05title\x18\x02 \x01(\tB\x03\xe0A\x02R\x05title\x12\x16\n" +
 	"\x06author\x18\x03 \x01(\tR\x06author\x12+\n" +
 	"\x06format\x18\x04 \x01(\x0e2\x13.api.book.v1.FormatR\x06format\x12\x12\n" +
 	"\x04isbn\x18\x05 \x01(\tR\x04isbn\x12\x14\n" +
 	"\x05pages\x18\x06 \x01(\x05R\x05pages\x12)\n" +
 	"\x10publication_year\x18\a \x01(\x05R\x0fpublicationYear\x12 \n" +
-	"\vdescription\x18\b \x01(\tR\vdescription\"_\n" +
+	"\vdescription\x18\b \x01(\tR\vdescription\"^\n" +
 	"\x0fGetBookResponse\x12+\n" +
-	"\x06format\x18\x01 \x01(\x0e2\x13.api.book.v1.FormatR\x06format\x12\x1f\n" +
-	"\x04name\x18\x02 \x01(\tB\v\xe2A\x01\x02\xfaB\x04r\x02 \x01R\x04name\"\x99\x01\n" +
-	"\x10ListBooksRequest\x12\x1c\n" +
-	"\x06parent\x18\x01 \x01(\tB\x04\xe2A\x01\x02R\x06parent\x12\x1b\n" +
+	"\x06format\x18\x01 \x01(\x0e2\x13.api.book.v1.FormatR\x06format\x12\x1e\n" +
+	"\x04name\x18\x02 \x01(\tB\n" +
+	"\xe0A\x02\xfaB\x04r\x02 \x01R\x04name\"\x98\x01\n" +
+	"\x10ListBooksRequest\x12\x1b\n" +
+	"\x06parent\x18\x01 \x01(\tB\x03\xe0A\x02R\x06parent\x12\x1b\n" +
 	"\tpage_size\x18\x02 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x03 \x01(\tR\tpageToken\x12+\n" +
@@ -824,23 +826,23 @@ const file_api_book_v1_book_proto_rawDesc = "" +
 	"\x05books\x18\x01 \x03(\v2\x11.api.book.v1.BookR\x05books\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n" +
 	"\vtotal_count\x18\x03 \x01(\x05R\n" +
-	"totalCount\"^\n" +
-	"\x11CreateBookRequest\x12\x1c\n" +
-	"\x06parent\x18\x01 \x01(\tB\x04\xe2A\x01\x02R\x06parent\x12+\n" +
-	"\x04book\x18\x02 \x01(\v2\x11.api.book.v1.BookB\x04\xe2A\x01\x02R\x04book\"a\n" +
-	"\x11UpdateBookRequest\x12+\n" +
-	"\x04book\x18\x01 \x01(\v2\x11.api.book.v1.BookB\x04\xe2A\x01\x02R\x04book\x12\x1f\n" +
+	"totalCount\"\\\n" +
+	"\x11CreateBookRequest\x12\x1b\n" +
+	"\x06parent\x18\x01 \x01(\tB\x03\xe0A\x02R\x06parent\x12*\n" +
+	"\x04book\x18\x02 \x01(\v2\x11.api.book.v1.BookB\x03\xe0A\x02R\x04book\"`\n" +
+	"\x11UpdateBookRequest\x12*\n" +
+	"\x04book\x18\x01 \x01(\v2\x11.api.book.v1.BookB\x03\xe0A\x02R\x04book\x12\x1f\n" +
 	"\vupdate_mask\x18\x02 \x01(\tR\n" +
-	"updateMask\"M\n" +
-	"\x11DeleteBookRequest\x128\n" +
-	"\x04name\x18\x01 \x01(\tB$\xe2A\x01\x02\xfaA\x1d\n" +
+	"updateMask\"L\n" +
+	"\x11DeleteBookRequest\x127\n" +
+	"\x04name\x18\x01 \x01(\tB#\xe0A\x02\xfaA\x1d\n" +
 	"\x1blibrary.googleapis.com/BookR\x04name\"H\n" +
 	"\x12DeleteBookResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"\xb7\x01\n" +
-	"\x12SearchBooksRequest\x12\x1c\n" +
-	"\x06parent\x18\x01 \x01(\tB\x04\xe2A\x01\x02R\x06parent\x12\x1a\n" +
-	"\x05query\x18\x02 \x01(\tB\x04\xe2A\x01\x02R\x05query\x12\x1b\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xb5\x01\n" +
+	"\x12SearchBooksRequest\x12\x1b\n" +
+	"\x06parent\x18\x01 \x01(\tB\x03\xe0A\x02R\x06parent\x12\x19\n" +
+	"\x05query\x18\x02 \x01(\tB\x03\xe0A\x02R\x05query\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x04 \x01(\tR\tpageToken\x12+\n" +

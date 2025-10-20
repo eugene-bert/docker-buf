@@ -28,7 +28,6 @@ plugins:
       - lang=go
       - paths=source_relative
 
-
   # ##############################################################################
   #  gRPC-Gateway grpc-gateway & openapi
   #  https://github.com/grpc-ecosystem/grpc-gateway
@@ -39,6 +38,7 @@ plugins:
     out: .
     opt:
       - paths=source_relative
+
   - name: openapiv2
     out: .
     opt:
@@ -85,6 +85,7 @@ plugins:
     opt:
       - import_style=typescript
       - mode=grpcweb
+
   # ##############################################################################
   #  https://buf.build/grpc/python
   #  https://buf.build/protocolbuffers/python

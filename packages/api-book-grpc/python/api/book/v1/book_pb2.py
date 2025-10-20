@@ -29,7 +29,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x61pi/book/v1/book.proto\x12\x0b\x61pi.book.v1\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x17validate/validate.proto\"J\n\x0eGetBookRequest\x12\x38\n\x04name\x18\x01 \x01(\tB$\xe2\x41\x01\x02\xfa\x41\x1d\n\x1blibrary.googleapis.com/BookR\x04name\"\xff\x01\n\x04\x42ook\x12\x1f\n\x04name\x18\x01 \x01(\tB\x0b\xe2\x41\x01\x02\xfa\x42\x04r\x02 \x01R\x04name\x12\x1a\n\x05title\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x05title\x12\x16\n\x06\x61uthor\x18\x03 \x01(\tR\x06\x61uthor\x12+\n\x06\x66ormat\x18\x04 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\x12\x12\n\x04isbn\x18\x05 \x01(\tR\x04isbn\x12\x14\n\x05pages\x18\x06 \x01(\x05R\x05pages\x12)\n\x10publication_year\x18\x07 \x01(\x05R\x0fpublicationYear\x12 \n\x0b\x64\x65scription\x18\x08 \x01(\tR\x0b\x64\x65scription\"_\n\x0fGetBookResponse\x12+\n\x06\x66ormat\x18\x01 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\x12\x1f\n\x04name\x18\x02 \x01(\tB\x0b\xe2\x41\x01\x02\xfa\x42\x04r\x02 \x01R\x04name\"\x99\x01\n\x10ListBooksRequest\x12\x1c\n\x06parent\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x06parent\x12\x1b\n\tpage_size\x18\x02 \x01(\x05R\x08pageSize\x12\x1d\n\npage_token\x18\x03 \x01(\tR\tpageToken\x12+\n\x06\x66ormat\x18\x04 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\"\x85\x01\n\x11ListBooksResponse\x12\'\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\x11.api.book.v1.BookR\x05\x62ooks\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n\x0btotal_count\x18\x03 \x01(\x05R\ntotalCount\"^\n\x11\x43reateBookRequest\x12\x1c\n\x06parent\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x06parent\x12+\n\x04\x62ook\x18\x02 \x01(\x0b\x32\x11.api.book.v1.BookB\x04\xe2\x41\x01\x02R\x04\x62ook\"a\n\x11UpdateBookRequest\x12+\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x11.api.book.v1.BookB\x04\xe2\x41\x01\x02R\x04\x62ook\x12\x1f\n\x0bupdate_mask\x18\x02 \x01(\tR\nupdateMask\"M\n\x11\x44\x65leteBookRequest\x12\x38\n\x04name\x18\x01 \x01(\tB$\xe2\x41\x01\x02\xfa\x41\x1d\n\x1blibrary.googleapis.com/BookR\x04name\"H\n\x12\x44\x65leteBookResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"\xb7\x01\n\x12SearchBooksRequest\x12\x1c\n\x06parent\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x06parent\x12\x1a\n\x05query\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x05query\x12\x1b\n\tpage_size\x18\x03 \x01(\x05R\x08pageSize\x12\x1d\n\npage_token\x18\x04 \x01(\tR\tpageToken\x12+\n\x06\x66ormat\x18\x05 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\"\x87\x01\n\x13SearchBooksResponse\x12\'\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\x11.api.book.v1.BookR\x05\x62ooks\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n\x0btotal_count\x18\x03 \x01(\x05R\ntotalCount*s\n\x06\x46ormat\x12\x16\n\x12\x46ORMAT_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x46ORMAT_HARDBACK\x10\x01\x12\x14\n\x10\x46ORMAT_PAPERBACK\x10\x02\x12\x10\n\x0c\x46ORMAT_EBOOK\x10\x03\x12\x14\n\x10\x46ORMAT_AUDIOBOOK\x10\x04\x32\xfd\x05\n\x0b\x42ookService\x12t\n\x07GetBook\x12\x1b.api.book.v1.GetBookRequest\x1a\x1c.api.book.v1.GetBookResponse\".\xda\x41\x04name\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{name=publishers/*/books/*}\x12|\n\tListBooks\x12\x1d.api.book.v1.ListBooksRequest\x1a\x1e.api.book.v1.ListBooksResponse\"0\xda\x41\x06parent\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{parent=publishers/*}/books\x12|\n\nCreateBook\x12\x1e.api.book.v1.CreateBookRequest\x1a\x11.api.book.v1.Book\";\xda\x41\x0bparent,book\x82\xd3\xe4\x93\x02\'\"\x1f/v1/{parent=publishers/*}/books:\x04\x62ook\x12z\n\nUpdateBook\x12\x1e.api.book.v1.UpdateBookRequest\x1a\x11.api.book.v1.Book\"9\xda\x41\x04\x62ook\x82\xd3\xe4\x93\x02,2$/v1/{book.name=publishers/*/books/*}:\x04\x62ook\x12}\n\nDeleteBook\x12\x1e.api.book.v1.DeleteBookRequest\x1a\x1f.api.book.v1.DeleteBookResponse\".\xda\x41\x04name\x82\xd3\xe4\x93\x02!*\x1f/v1/{name=publishers/*/books/*}\x12\x80\x01\n\x0bSearchBooks\x12\x1f.api.book.v1.SearchBooksRequest\x1a .api.book.v1.SearchBooksResponse\".\x82\xd3\xe4\x93\x02(\x12&/v1/{parent=publishers/*}/books:searchBN\n\x0b\x63om.book.v1B\tBookProtoP\x01Z2github.com/eugene-bert/docker-buf/api/book/v1;bookb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x61pi/book/v1/book.proto\x12\x0b\x61pi.book.v1\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x17validate/validate.proto\"I\n\x0eGetBookRequest\x12\x37\n\x04name\x18\x01 \x01(\tB#\xe0\x41\x02\xfa\x41\x1d\n\x1blibrary.googleapis.com/BookR\x04name\"\xfd\x01\n\x04\x42ook\x12\x1e\n\x04name\x18\x01 \x01(\tB\n\xe0\x41\x02\xfa\x42\x04r\x02 \x01R\x04name\x12\x19\n\x05title\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05title\x12\x16\n\x06\x61uthor\x18\x03 \x01(\tR\x06\x61uthor\x12+\n\x06\x66ormat\x18\x04 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\x12\x12\n\x04isbn\x18\x05 \x01(\tR\x04isbn\x12\x14\n\x05pages\x18\x06 \x01(\x05R\x05pages\x12)\n\x10publication_year\x18\x07 \x01(\x05R\x0fpublicationYear\x12 \n\x0b\x64\x65scription\x18\x08 \x01(\tR\x0b\x64\x65scription\"^\n\x0fGetBookResponse\x12+\n\x06\x66ormat\x18\x01 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\x12\x1e\n\x04name\x18\x02 \x01(\tB\n\xe0\x41\x02\xfa\x42\x04r\x02 \x01R\x04name\"\x98\x01\n\x10ListBooksRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12\x1b\n\tpage_size\x18\x02 \x01(\x05R\x08pageSize\x12\x1d\n\npage_token\x18\x03 \x01(\tR\tpageToken\x12+\n\x06\x66ormat\x18\x04 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\"\x85\x01\n\x11ListBooksResponse\x12\'\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\x11.api.book.v1.BookR\x05\x62ooks\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n\x0btotal_count\x18\x03 \x01(\x05R\ntotalCount\"\\\n\x11\x43reateBookRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12*\n\x04\x62ook\x18\x02 \x01(\x0b\x32\x11.api.book.v1.BookB\x03\xe0\x41\x02R\x04\x62ook\"`\n\x11UpdateBookRequest\x12*\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x11.api.book.v1.BookB\x03\xe0\x41\x02R\x04\x62ook\x12\x1f\n\x0bupdate_mask\x18\x02 \x01(\tR\nupdateMask\"L\n\x11\x44\x65leteBookRequest\x12\x37\n\x04name\x18\x01 \x01(\tB#\xe0\x41\x02\xfa\x41\x1d\n\x1blibrary.googleapis.com/BookR\x04name\"H\n\x12\x44\x65leteBookResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"\xb5\x01\n\x12SearchBooksRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12\x19\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05query\x12\x1b\n\tpage_size\x18\x03 \x01(\x05R\x08pageSize\x12\x1d\n\npage_token\x18\x04 \x01(\tR\tpageToken\x12+\n\x06\x66ormat\x18\x05 \x01(\x0e\x32\x13.api.book.v1.FormatR\x06\x66ormat\"\x87\x01\n\x13SearchBooksResponse\x12\'\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\x11.api.book.v1.BookR\x05\x62ooks\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n\x0btotal_count\x18\x03 \x01(\x05R\ntotalCount*s\n\x06\x46ormat\x12\x16\n\x12\x46ORMAT_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x46ORMAT_HARDBACK\x10\x01\x12\x14\n\x10\x46ORMAT_PAPERBACK\x10\x02\x12\x10\n\x0c\x46ORMAT_EBOOK\x10\x03\x12\x14\n\x10\x46ORMAT_AUDIOBOOK\x10\x04\x32\xfd\x05\n\x0b\x42ookService\x12t\n\x07GetBook\x12\x1b.api.book.v1.GetBookRequest\x1a\x1c.api.book.v1.GetBookResponse\".\xda\x41\x04name\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{name=publishers/*/books/*}\x12|\n\tListBooks\x12\x1d.api.book.v1.ListBooksRequest\x1a\x1e.api.book.v1.ListBooksResponse\"0\xda\x41\x06parent\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{parent=publishers/*}/books\x12|\n\nCreateBook\x12\x1e.api.book.v1.CreateBookRequest\x1a\x11.api.book.v1.Book\";\xda\x41\x0bparent,book\x82\xd3\xe4\x93\x02\'\"\x1f/v1/{parent=publishers/*}/books:\x04\x62ook\x12z\n\nUpdateBook\x12\x1e.api.book.v1.UpdateBookRequest\x1a\x11.api.book.v1.Book\"9\xda\x41\x04\x62ook\x82\xd3\xe4\x93\x02,2$/v1/{book.name=publishers/*/books/*}:\x04\x62ook\x12}\n\nDeleteBook\x12\x1e.api.book.v1.DeleteBookRequest\x1a\x1f.api.book.v1.DeleteBookResponse\".\xda\x41\x04name\x82\xd3\xe4\x93\x02!*\x1f/v1/{name=publishers/*/books/*}\x12\x80\x01\n\x0bSearchBooks\x12\x1f.api.book.v1.SearchBooksRequest\x1a .api.book.v1.SearchBooksResponse\".\x82\xd3\xe4\x93\x02(\x12&/v1/{parent=publishers/*}/books:searchBN\n\x0b\x63om.book.v1B\tBookProtoP\x01Z2github.com/eugene-bert/docker-buf/api/book/v1;bookb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -38,27 +38,27 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\013com.book.v1B\tBookProtoP\001Z2github.com/eugene-bert/docker-buf/api/book/v1;book'
   _globals['_GETBOOKREQUEST'].fields_by_name['name']._loaded_options = None
-  _globals['_GETBOOKREQUEST'].fields_by_name['name']._serialized_options = b'\342A\001\002\372A\035\n\033library.googleapis.com/Book'
+  _globals['_GETBOOKREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002\372A\035\n\033library.googleapis.com/Book'
   _globals['_BOOK'].fields_by_name['name']._loaded_options = None
-  _globals['_BOOK'].fields_by_name['name']._serialized_options = b'\342A\001\002\372B\004r\002 \001'
+  _globals['_BOOK'].fields_by_name['name']._serialized_options = b'\340A\002\372B\004r\002 \001'
   _globals['_BOOK'].fields_by_name['title']._loaded_options = None
-  _globals['_BOOK'].fields_by_name['title']._serialized_options = b'\342A\001\002'
+  _globals['_BOOK'].fields_by_name['title']._serialized_options = b'\340A\002'
   _globals['_GETBOOKRESPONSE'].fields_by_name['name']._loaded_options = None
-  _globals['_GETBOOKRESPONSE'].fields_by_name['name']._serialized_options = b'\342A\001\002\372B\004r\002 \001'
+  _globals['_GETBOOKRESPONSE'].fields_by_name['name']._serialized_options = b'\340A\002\372B\004r\002 \001'
   _globals['_LISTBOOKSREQUEST'].fields_by_name['parent']._loaded_options = None
-  _globals['_LISTBOOKSREQUEST'].fields_by_name['parent']._serialized_options = b'\342A\001\002'
+  _globals['_LISTBOOKSREQUEST'].fields_by_name['parent']._serialized_options = b'\340A\002'
   _globals['_CREATEBOOKREQUEST'].fields_by_name['parent']._loaded_options = None
-  _globals['_CREATEBOOKREQUEST'].fields_by_name['parent']._serialized_options = b'\342A\001\002'
+  _globals['_CREATEBOOKREQUEST'].fields_by_name['parent']._serialized_options = b'\340A\002'
   _globals['_CREATEBOOKREQUEST'].fields_by_name['book']._loaded_options = None
-  _globals['_CREATEBOOKREQUEST'].fields_by_name['book']._serialized_options = b'\342A\001\002'
+  _globals['_CREATEBOOKREQUEST'].fields_by_name['book']._serialized_options = b'\340A\002'
   _globals['_UPDATEBOOKREQUEST'].fields_by_name['book']._loaded_options = None
-  _globals['_UPDATEBOOKREQUEST'].fields_by_name['book']._serialized_options = b'\342A\001\002'
+  _globals['_UPDATEBOOKREQUEST'].fields_by_name['book']._serialized_options = b'\340A\002'
   _globals['_DELETEBOOKREQUEST'].fields_by_name['name']._loaded_options = None
-  _globals['_DELETEBOOKREQUEST'].fields_by_name['name']._serialized_options = b'\342A\001\002\372A\035\n\033library.googleapis.com/Book'
+  _globals['_DELETEBOOKREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002\372A\035\n\033library.googleapis.com/Book'
   _globals['_SEARCHBOOKSREQUEST'].fields_by_name['parent']._loaded_options = None
-  _globals['_SEARCHBOOKSREQUEST'].fields_by_name['parent']._serialized_options = b'\342A\001\002'
+  _globals['_SEARCHBOOKSREQUEST'].fields_by_name['parent']._serialized_options = b'\340A\002'
   _globals['_SEARCHBOOKSREQUEST'].fields_by_name['query']._loaded_options = None
-  _globals['_SEARCHBOOKSREQUEST'].fields_by_name['query']._serialized_options = b'\342A\001\002'
+  _globals['_SEARCHBOOKSREQUEST'].fields_by_name['query']._serialized_options = b'\340A\002'
   _globals['_BOOKSERVICE'].methods_by_name['GetBook']._loaded_options = None
   _globals['_BOOKSERVICE'].methods_by_name['GetBook']._serialized_options = b'\332A\004name\202\323\344\223\002!\022\037/v1/{name=publishers/*/books/*}'
   _globals['_BOOKSERVICE'].methods_by_name['ListBooks']._loaded_options = None
@@ -71,30 +71,30 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_BOOKSERVICE'].methods_by_name['DeleteBook']._serialized_options = b'\332A\004name\202\323\344\223\002!*\037/v1/{name=publishers/*/books/*}'
   _globals['_BOOKSERVICE'].methods_by_name['SearchBooks']._loaded_options = None
   _globals['_BOOKSERVICE'].methods_by_name['SearchBooks']._serialized_options = b'\202\323\344\223\002(\022&/v1/{parent=publishers/*}/books:search'
-  _globals['_FORMAT']._serialized_start=1574
-  _globals['_FORMAT']._serialized_end=1689
+  _globals['_FORMAT']._serialized_start=1563
+  _globals['_FORMAT']._serialized_end=1678
   _globals['_GETBOOKREQUEST']._serialized_start=179
-  _globals['_GETBOOKREQUEST']._serialized_end=253
-  _globals['_BOOK']._serialized_start=256
-  _globals['_BOOK']._serialized_end=511
-  _globals['_GETBOOKRESPONSE']._serialized_start=513
-  _globals['_GETBOOKRESPONSE']._serialized_end=608
-  _globals['_LISTBOOKSREQUEST']._serialized_start=611
-  _globals['_LISTBOOKSREQUEST']._serialized_end=764
-  _globals['_LISTBOOKSRESPONSE']._serialized_start=767
-  _globals['_LISTBOOKSRESPONSE']._serialized_end=900
-  _globals['_CREATEBOOKREQUEST']._serialized_start=902
-  _globals['_CREATEBOOKREQUEST']._serialized_end=996
-  _globals['_UPDATEBOOKREQUEST']._serialized_start=998
-  _globals['_UPDATEBOOKREQUEST']._serialized_end=1095
-  _globals['_DELETEBOOKREQUEST']._serialized_start=1097
-  _globals['_DELETEBOOKREQUEST']._serialized_end=1174
-  _globals['_DELETEBOOKRESPONSE']._serialized_start=1176
-  _globals['_DELETEBOOKRESPONSE']._serialized_end=1248
-  _globals['_SEARCHBOOKSREQUEST']._serialized_start=1251
-  _globals['_SEARCHBOOKSREQUEST']._serialized_end=1434
-  _globals['_SEARCHBOOKSRESPONSE']._serialized_start=1437
-  _globals['_SEARCHBOOKSRESPONSE']._serialized_end=1572
-  _globals['_BOOKSERVICE']._serialized_start=1692
-  _globals['_BOOKSERVICE']._serialized_end=2457
+  _globals['_GETBOOKREQUEST']._serialized_end=252
+  _globals['_BOOK']._serialized_start=255
+  _globals['_BOOK']._serialized_end=508
+  _globals['_GETBOOKRESPONSE']._serialized_start=510
+  _globals['_GETBOOKRESPONSE']._serialized_end=604
+  _globals['_LISTBOOKSREQUEST']._serialized_start=607
+  _globals['_LISTBOOKSREQUEST']._serialized_end=759
+  _globals['_LISTBOOKSRESPONSE']._serialized_start=762
+  _globals['_LISTBOOKSRESPONSE']._serialized_end=895
+  _globals['_CREATEBOOKREQUEST']._serialized_start=897
+  _globals['_CREATEBOOKREQUEST']._serialized_end=989
+  _globals['_UPDATEBOOKREQUEST']._serialized_start=991
+  _globals['_UPDATEBOOKREQUEST']._serialized_end=1087
+  _globals['_DELETEBOOKREQUEST']._serialized_start=1089
+  _globals['_DELETEBOOKREQUEST']._serialized_end=1165
+  _globals['_DELETEBOOKRESPONSE']._serialized_start=1167
+  _globals['_DELETEBOOKRESPONSE']._serialized_end=1239
+  _globals['_SEARCHBOOKSREQUEST']._serialized_start=1242
+  _globals['_SEARCHBOOKSREQUEST']._serialized_end=1423
+  _globals['_SEARCHBOOKSRESPONSE']._serialized_start=1426
+  _globals['_SEARCHBOOKSRESPONSE']._serialized_end=1561
+  _globals['_BOOKSERVICE']._serialized_start=1681
+  _globals['_BOOKSERVICE']._serialized_end=2446
 # @@protoc_insertion_point(module_scope)

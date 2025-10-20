@@ -1,0 +1,43 @@
+# Git
+.git
+.gitignore
+.github
+
+# Build artifacts
+node_modules
+packages/*/node_modules
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Generated files
+bruno/collections
+packages/api-book-grpc/nodejs/src/protobuf
+packages/api-book-grpc/python
+*.swagger.json
+docs/generated/*.md
+
+# IDE
+.idea
+.vscode
+.specstory
+.claude
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+License.md
+
+# Docker
+docker-compose.yaml
+Dockerfile
+
+# Other
+tsconfig.json

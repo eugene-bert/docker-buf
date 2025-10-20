@@ -1,4 +1,4 @@
 {
   "files": [],
-  "references": [{ "path": "packages/api-book-grpc/nodejs" }],
+  "references": [{ "path": "packages/api-book-grpc/nodejs" }]
 }
