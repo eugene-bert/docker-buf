@@ -1,26 +1,24 @@
-FROM golang:1.19-alpine as golang
+FROM golang:1.25-alpine AS golang
 
-ENV GOOS=linux GOARCH=amd64 CGO_ENABLED=0 GO111MODULE=auto
+ENV GOOS=linux CGO_ENABLED=0
 
 RUN apk add --no-cache git
 
-RUN go get -u google.golang.org/grpc
-RUN go get -u github.com/golang/protobuf/protoc-gen-go
-RUN go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc
-
-RUN go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
-RUN go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+RUN go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
+RUN go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
 RUN go install github.com/envoyproxy/protoc-gen-validate@latest
+RUN go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
+RUN go install github.com/eugene-bert/protoc-gen-bruno@v0.5.4
 
-FROM node:alpine as node
+FROM node:alpine AS node
 
 WORKDIR /usr/app
 COPY package.json /usr/app/package.json
 RUN npm install
 
-FROM bufbuild/buf:latest as buf
+FROM bufbuild/buf:latest AS buf
 
 COPY --from=golang /go/bin /go/bin
 COPY --from=node /usr/app/node_modules /node_modules

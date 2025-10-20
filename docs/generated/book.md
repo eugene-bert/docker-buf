@@ -9,10 +9,23 @@
 
 
 - Messages
+    - [Book](#book)
+    - [CreateBookRequest](#createbookrequest)
+    - [DeleteBookRequest](#deletebookrequest)
+    - [DeleteBookResponse](#deletebookresponse)
     - [GetBookRequest](#getbookrequest)
     - [GetBookResponse](#getbookresponse)
+    - [ListBooksRequest](#listbooksrequest)
+    - [ListBooksResponse](#listbooksresponse)
+    - [SearchBooksRequest](#searchbooksrequest)
+    - [SearchBooksResponse](#searchbooksresponse)
+    - [UpdateBookRequest](#updatebookrequest)
   
 
+
+- Enums
+    - [Format](#format)
+  
 
 
 - [Scalar Value Types](#scalar-value-types)
@@ -27,11 +40,94 @@
 > **rpc** GetBook([GetBookRequest](#getbookrequest))
     [GetBookResponse](#getbookresponse)
 
+Get a single book by name
+## ListBooks
 
+> **rpc** ListBooks([ListBooksRequest](#listbooksrequest))
+    [ListBooksResponse](#listbooksresponse)
+
+List all books for a publisher with pagination
+## CreateBook
+
+> **rpc** CreateBook([CreateBookRequest](#createbookrequest))
+    [Book](#book)
+
+Create a new book
+## UpdateBook
+
+> **rpc** UpdateBook([UpdateBookRequest](#updatebookrequest))
+    [Book](#book)
+
+Update an existing book
+## DeleteBook
+
+> **rpc** DeleteBook([DeleteBookRequest](#deletebookrequest))
+    [DeleteBookResponse](#deletebookresponse)
+
+Delete a book
+## SearchBooks
+
+> **rpc** SearchBooks([SearchBooksRequest](#searchbooksrequest))
+    [SearchBooksResponse](#searchbooksresponse)
+
+Search books by title or author
  <!-- end methods -->
  <!-- end services -->
 
 # Messages
+
+
+## Book {#book}
+A representation of a book.
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| name | [ string](#string) | The resource name of the book. Format: publishers/{publisher}/books/{book} |
+| title | [ string](#string) | The title of the book. |
+| author | [ string](#string) | The author of the book. |
+| format | [ Format](#format) | The format of the book. |
+| isbn | [ string](#string) | ISBN number |
+| pages | [ int32](#int32) | Number of pages |
+| publication_year | [ int32](#int32) | Publication year |
+| description | [ string](#string) | Book description |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## CreateBookRequest {#createbookrequest}
+Request message for CreateBook
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| parent | [ string](#string) | The parent publisher resource name. Format: publishers/{publisher} |
+| book | [ Book](#book) | The book to create. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## DeleteBookRequest {#deletebookrequest}
+Request message for DeleteBook
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| name | [ string](#string) | The name of the book to delete. Format: publishers/{publisher}/books/{book} |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## DeleteBookResponse {#deletebookresponse}
+Response message for DeleteBook
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| success | [ bool](#bool) | Success indicator |
+| message | [ string](#string) | Optional message |
+ <!-- end Fields -->
+ <!-- end HasFields -->
 
 
 ## GetBookRequest {#getbookrequest}
@@ -46,15 +142,80 @@
 
 
 ## GetBookResponse {#getbookresponse}
-A representation of a book.
-
-Other fields...
+Response for GetBook
 
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| format | [ GetBookResponse.Format](#getbookresponse.format) | The format of the book. |
+| format | [ Format](#format) | The format of the book. |
 | name | [ string](#string) | The name of the book |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## ListBooksRequest {#listbooksrequest}
+Request message for ListBooks
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| parent | [ string](#string) | The parent publisher resource name. Format: publishers/{publisher} |
+| page_size | [ int32](#int32) | The maximum number of books to return. |
+| page_token | [ string](#string) | The page token for pagination. |
+| format | [ Format](#format) | Optional filter by format |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## ListBooksResponse {#listbooksresponse}
+Response message for ListBooks
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| books | [repeated Book](#book) | The list of books. |
+| next_page_token | [ string](#string) | Token for the next page of results. |
+| total_count | [ int32](#int32) | Total count of books |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## SearchBooksRequest {#searchbooksrequest}
+Request message for SearchBooks
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| parent | [ string](#string) | The parent publisher resource name. Format: publishers/{publisher} |
+| query | [ string](#string) | Search query (searches title and author) |
+| page_size | [ int32](#int32) | Maximum number of results |
+| page_token | [ string](#string) | Page token for pagination |
+| format | [ Format](#format) | Optional filter by format |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## SearchBooksResponse {#searchbooksresponse}
+Response message for SearchBooks
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| books | [repeated Book](#book) | The list of books matching the search. |
+| next_page_token | [ string](#string) | Token for the next page of results. |
+| total_count | [ int32](#int32) | Total count of matching books |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+## UpdateBookRequest {#updatebookrequest}
+Request message for UpdateBook
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| book | [ Book](#book) | The book to update. |
+| update_mask | [ string](#string) | The list of fields to update. Use "*" to update all fields. |
  <!-- end Fields -->
  <!-- end HasFields -->
  <!-- end messages -->
@@ -62,7 +223,7 @@ Other fields...
 # Enums
 
 
-## GetBookResponse.Format {#getbookresponse.format}
+## Format {#format}
 Possible formats in which the book may be published.
 
 | Name | Number | Description |

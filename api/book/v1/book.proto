@@ -15,11 +15,53 @@ import "google/api/resource.proto";
 import "validate/validate.proto";
 
 service BookService {
+  // Get a single book by name
   rpc GetBook(GetBookRequest) returns (GetBookResponse) {
     option (google.api.http) = {
       get: "/v1/{name=publishers/*/books/*}"
     };
     option (google.api.method_signature) = "name";
+  }
+
+  // List all books for a publisher with pagination
+  rpc ListBooks(ListBooksRequest) returns (ListBooksResponse) {
+    option (google.api.http) = {
+      get: "/v1/{parent=publishers/*}/books"
+    };
+    option (google.api.method_signature) = "parent";
+  }
+
+  // Create a new book
+  rpc CreateBook(CreateBookRequest) returns (Book) {
+    option (google.api.http) = {
+      post: "/v1/{parent=publishers/*}/books"
+      body: "book"
+    };
+    option (google.api.method_signature) = "parent,book";
+  }
+
+  // Update an existing book
+  rpc UpdateBook(UpdateBookRequest) returns (Book) {
+    option (google.api.http) = {
+      patch: "/v1/{book.name=publishers/*/books/*}"
+      body: "book"
+    };
+    option (google.api.method_signature) = "book";
+  }
+
+  // Delete a book
+  rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse) {
+    option (google.api.http) = {
+      delete: "/v1/{name=publishers/*/books/*}"
+    };
+    option (google.api.method_signature) = "name";
+  }
+
+  // Search books by title or author
+  rpc SearchBooks(SearchBooksRequest) returns (SearchBooksResponse) {
+    option (google.api.http) = {
+      get: "/v1/{parent=publishers/*}/books:search"
+    };
   }
 }
 
@@ -33,33 +75,156 @@ message GetBookRequest {
     }];
 }
 
+// Possible formats in which the book may be published.
+enum Format {
+  // Default value. This value is unused.
+  FORMAT_UNSPECIFIED = 0;
+
+  // The printed format, in hardback.
+  FORMAT_HARDBACK = 1;
+
+  // The printed format, in paperback.
+  FORMAT_PAPERBACK = 2;
+
+  // An electronic book format.
+  FORMAT_EBOOK = 3;
+
+  // An audio recording.
+  FORMAT_AUDIOBOOK = 4;
+}
+
 // A representation of a book.
+message Book {
+  // The resource name of the book.
+  // Format: publishers/{publisher}/books/{book}
+  string name = 1 [(google.api.field_behavior) = REQUIRED, (validate.rules).string.min_bytes = 1];
+
+  // The title of the book.
+  string title = 2 [(google.api.field_behavior) = REQUIRED];
+
+  // The author of the book.
+  string author = 3;
+
+  // The format of the book.
+  Format format = 4;
+
+  // ISBN number
+  string isbn = 5;
+
+  // Number of pages
+  int32 pages = 6;
+
+  // Publication year
+  int32 publication_year = 7;
+
+  // Book description
+  string description = 8;
+}
+
+// Response for GetBook
 message GetBookResponse {
-  // Other fields...
-
-  // Possible formats in which the book may be published.
-  enum Format {
-    // Default value. This value is unused.
-    FORMAT_UNSPECIFIED = 0;
-
-    // The printed format, in hardback.
-    FORMAT_HARDBACK = 1;
-
-    // The printed format, in paperback.
-    FORMAT_PAPERBACK = 2;
-
-    // An electronic book format.
-    FORMAT_EBOOK = 3;
-
-    // An audio recording.
-    FORMAT_AUDIOBOOK = 4;
-  }
-
   // The format of the book.
   Format format = 1;
 
   // The name of the book
   string name = 2 [(google.api.field_behavior) = REQUIRED, (validate.rules).string.min_bytes = 1 ];
+}
 
-  // Other fields...
+// Request message for ListBooks
+message ListBooksRequest {
+  // The parent publisher resource name.
+  // Format: publishers/{publisher}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The maximum number of books to return.
+  int32 page_size = 2;
+
+  // The page token for pagination.
+  string page_token = 3;
+
+  // Optional filter by format
+  Format format = 4;
+}
+
+// Response message for ListBooks
+message ListBooksResponse {
+  // The list of books.
+  repeated Book books = 1;
+
+  // Token for the next page of results.
+  string next_page_token = 2;
+
+  // Total count of books
+  int32 total_count = 3;
+}
+
+// Request message for CreateBook
+message CreateBookRequest {
+  // The parent publisher resource name.
+  // Format: publishers/{publisher}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The book to create.
+  Book book = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+// Request message for UpdateBook
+message UpdateBookRequest {
+  // The book to update.
+  Book book = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The list of fields to update.
+  // Use "*" to update all fields.
+  string update_mask = 2;
+}
+
+// Request message for DeleteBook
+message DeleteBookRequest {
+  // The name of the book to delete.
+  // Format: publishers/{publisher}/books/{book}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "library.googleapis.com/Book"
+    }];
+}
+
+// Response message for DeleteBook
+message DeleteBookResponse {
+  // Success indicator
+  bool success = 1;
+
+  // Optional message
+  string message = 2;
+}
+
+// Request message for SearchBooks
+message SearchBooksRequest {
+  // The parent publisher resource name.
+  // Format: publishers/{publisher}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // Search query (searches title and author)
+  string query = 2 [(google.api.field_behavior) = REQUIRED];
+
+  // Maximum number of results
+  int32 page_size = 3;
+
+  // Page token for pagination
+  string page_token = 4;
+
+  // Optional filter by format
+  Format format = 5;
+}
+
+// Response message for SearchBooks
+message SearchBooksResponse {
+  // The list of books matching the search.
+  repeated Book books = 1;
+
+  // Token for the next page of results.
+  string next_page_token = 2;
+
+  // Total count of matching books
+  int32 total_count = 3;
 }

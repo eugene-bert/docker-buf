@@ -62,7 +62,7 @@ plugins:
   # https://www.npmjs.com/package/ts-proto
   # ##############################################################################
   - plugin: grpc
-    path: node_modules/.bin/protoc-gen-ts_proto
+    path: /node_modules/ts-proto/protoc-gen-ts_proto
     out: packages/api-book-grpc/nodejs/src/protobuf
     strategy: all
     opt:
@@ -93,4 +93,18 @@ plugins:
     out: packages/api-book-grpc/python
   - plugin: buf.build/protocolbuffers/python
     out: packages/api-book-grpc/python
+
+  # ##############################################################################
+  #  protoc-gen-bruno
+  #  https://github.com/eugene-bert/protoc-gen-bruno
+  # #############################################################################
+  - plugin: bruno
+    out: bruno/collections
+    opt:
+      - collection_name=Book API
+      - mode=all
+      - local_url=http://localhost:8080
+      - dev_url=https://api.dev.example.com/api
+      - stg_url=https://api.staging.example.com/api
+      - prd_url=https://api.example.com/api
 

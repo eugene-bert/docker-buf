@@ -19,13 +19,74 @@ class BookServiceStub(object):
                 request_serializer=api_dot_book_dot_v1_dot_book__pb2.GetBookRequest.SerializeToString,
                 response_deserializer=api_dot_book_dot_v1_dot_book__pb2.GetBookResponse.FromString,
                 )
+        self.ListBooks = channel.unary_unary(
+                '/api.book.v1.BookService/ListBooks',
+                request_serializer=api_dot_book_dot_v1_dot_book__pb2.ListBooksRequest.SerializeToString,
+                response_deserializer=api_dot_book_dot_v1_dot_book__pb2.ListBooksResponse.FromString,
+                )
+        self.CreateBook = channel.unary_unary(
+                '/api.book.v1.BookService/CreateBook',
+                request_serializer=api_dot_book_dot_v1_dot_book__pb2.CreateBookRequest.SerializeToString,
+                response_deserializer=api_dot_book_dot_v1_dot_book__pb2.Book.FromString,
+                )
+        self.UpdateBook = channel.unary_unary(
+                '/api.book.v1.BookService/UpdateBook',
+                request_serializer=api_dot_book_dot_v1_dot_book__pb2.UpdateBookRequest.SerializeToString,
+                response_deserializer=api_dot_book_dot_v1_dot_book__pb2.Book.FromString,
+                )
+        self.DeleteBook = channel.unary_unary(
+                '/api.book.v1.BookService/DeleteBook',
+                request_serializer=api_dot_book_dot_v1_dot_book__pb2.DeleteBookRequest.SerializeToString,
+                response_deserializer=api_dot_book_dot_v1_dot_book__pb2.DeleteBookResponse.FromString,
+                )
+        self.SearchBooks = channel.unary_unary(
+                '/api.book.v1.BookService/SearchBooks',
+                request_serializer=api_dot_book_dot_v1_dot_book__pb2.SearchBooksRequest.SerializeToString,
+                response_deserializer=api_dot_book_dot_v1_dot_book__pb2.SearchBooksResponse.FromString,
+                )
 
 
 class BookServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetBook(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Get a single book by name
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBooks(self, request, context):
+        """List all books for a publisher with pagination
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateBook(self, request, context):
+        """Create a new book
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateBook(self, request, context):
+        """Update an existing book
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteBook(self, request, context):
+        """Delete a book
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SearchBooks(self, request, context):
+        """Search books by title or author
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -37,6 +98,31 @@ def add_BookServiceServicer_to_server(servicer, server):
                     servicer.GetBook,
                     request_deserializer=api_dot_book_dot_v1_dot_book__pb2.GetBookRequest.FromString,
                     response_serializer=api_dot_book_dot_v1_dot_book__pb2.GetBookResponse.SerializeToString,
+            ),
+            'ListBooks': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBooks,
+                    request_deserializer=api_dot_book_dot_v1_dot_book__pb2.ListBooksRequest.FromString,
+                    response_serializer=api_dot_book_dot_v1_dot_book__pb2.ListBooksResponse.SerializeToString,
+            ),
+            'CreateBook': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateBook,
+                    request_deserializer=api_dot_book_dot_v1_dot_book__pb2.CreateBookRequest.FromString,
+                    response_serializer=api_dot_book_dot_v1_dot_book__pb2.Book.SerializeToString,
+            ),
+            'UpdateBook': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateBook,
+                    request_deserializer=api_dot_book_dot_v1_dot_book__pb2.UpdateBookRequest.FromString,
+                    response_serializer=api_dot_book_dot_v1_dot_book__pb2.Book.SerializeToString,
+            ),
+            'DeleteBook': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteBook,
+                    request_deserializer=api_dot_book_dot_v1_dot_book__pb2.DeleteBookRequest.FromString,
+                    response_serializer=api_dot_book_dot_v1_dot_book__pb2.DeleteBookResponse.SerializeToString,
+            ),
+            'SearchBooks': grpc.unary_unary_rpc_method_handler(
+                    servicer.SearchBooks,
+                    request_deserializer=api_dot_book_dot_v1_dot_book__pb2.SearchBooksRequest.FromString,
+                    response_serializer=api_dot_book_dot_v1_dot_book__pb2.SearchBooksResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,5 +148,90 @@ class BookService(object):
         return grpc.experimental.unary_unary(request, target, '/api.book.v1.BookService/GetBook',
             api_dot_book_dot_v1_dot_book__pb2.GetBookRequest.SerializeToString,
             api_dot_book_dot_v1_dot_book__pb2.GetBookResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBooks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.book.v1.BookService/ListBooks',
+            api_dot_book_dot_v1_dot_book__pb2.ListBooksRequest.SerializeToString,
+            api_dot_book_dot_v1_dot_book__pb2.ListBooksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateBook(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.book.v1.BookService/CreateBook',
+            api_dot_book_dot_v1_dot_book__pb2.CreateBookRequest.SerializeToString,
+            api_dot_book_dot_v1_dot_book__pb2.Book.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateBook(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.book.v1.BookService/UpdateBook',
+            api_dot_book_dot_v1_dot_book__pb2.UpdateBookRequest.SerializeToString,
+            api_dot_book_dot_v1_dot_book__pb2.Book.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteBook(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.book.v1.BookService/DeleteBook',
+            api_dot_book_dot_v1_dot_book__pb2.DeleteBookRequest.SerializeToString,
+            api_dot_book_dot_v1_dot_book__pb2.DeleteBookResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchBooks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.book.v1.BookService/SearchBooks',
+            api_dot_book_dot_v1_dot_book__pb2.SearchBooksRequest.SerializeToString,
+            api_dot_book_dot_v1_dot_book__pb2.SearchBooksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

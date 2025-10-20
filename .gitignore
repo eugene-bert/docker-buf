@@ -1,3 +1,8 @@
 .idea/*
 node_modules/*
 packages/api-book-grpc/nodejs/lib/*
+
+/.specstory
+
+# Bruno generated collections
+bruno/collections/*

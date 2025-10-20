@@ -2,7 +2,7 @@
 
 Extended docker [bufbuild](https://docs.buf.build/installation#using-the-docker-image) functionality based on [bufbuild/buf docker image](https://hub.docker.com/r/bufbuild/buf)
 
-### Plugins included: 
+### Plugins included:
 - [gRPC-Go](https://google.golang.org/grpc)
 - [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc)
 - [protoc-gen-go](https://pkg.go.dev/github.com/golang/protobuf/protoc-gen-go)
@@ -15,6 +15,7 @@ Extended docker [bufbuild](https://docs.buf.build/installation#using-the-docker-
 - [protoc-gen-grpc-web](https://github.com/grpc/grpc-web)
 - [gRPC-python](https://buf.build/grpc/python)
 - [protocolbuffers-python](https://buf.build/protocolbuffers/python)
+- [protoc-gen-bruno](https://github.com/eugene-bert/protoc-gen-bruno) - Generates Bruno API collections
 
 ## Usage
 
@@ -60,3 +61,18 @@ To compile proto files for the application, run the following command (_can be r
 ```
 make docker-buf
 ```
+
+### Bruno API Collections
+
+The generated Bruno API collections will be available in `bruno/collections/` directory. To use them:
+
+1. Open [Bruno](https://www.usebruno.com/)
+2. Click "Open Collection"
+3. Navigate to `bruno/collections` folder
+4. Select environment (Local, Development, Staging, Production)
+
+The collections include:
+- HTTP requests from `google.api.http` annotations
+- gRPC requests from service definitions
+- Auto-generated example request bodies
+- Multi-environment support (Dev, Staging, Production)
