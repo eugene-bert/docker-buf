@@ -13,14 +13,17 @@ package-lock.json
 
 # Generated files
 bruno/collections/
-packages/api-book-grpc/nodejs/lib/
-packages/api-book-grpc/nodejs/src/protobuf/
-packages/api-book-grpc/python/
+packages/
 *.swagger.json
 docs/generated/*.md
 api/**/*.pb.go
 api/**/*_grpc.pb.go
+api/**/*.pb.gw.go
 api/**/*.pb.validate.go
+api/**/*.pb.d.ts
+api/**/*ClientPb.ts
+api/**/*_pb2.py
+api/**/*_pb2_grpc.py
 
 # Logs
 *.log

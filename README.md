@@ -3,8 +3,8 @@
 Extended Docker image for [Buf](https://buf.build) with comprehensive protoc plugin support.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/eugene-bert/docker-buf/blob/main/License.md)
-[![Docker](https://img.shields.io/badge/docker-latest-blue.svg)](https://hub.docker.com/r/bufbuild/buf)
-[![Go](https://img.shields.io/badge/go-1.25-00ADD8.svg)](https://golang.org/)
+[![Docker](https://img.shields.io/badge/ghcr.io-docker--buf-blue.svg)](https://github.com/eugene-bert/docker-buf/pkgs/container/docker-buf)
+[![Go](https://img.shields.io/badge/go-1.26-00ADD8.svg)](https://golang.org/)
 
 Based on the official [bufbuild/buf Docker image](https://hub.docker.com/r/bufbuild/buf), this image includes additional protoc plugins for generating code in multiple languages and formats
 
@@ -48,24 +48,17 @@ make clean         # Clean all generated files
 ## Directory / File Structure
 
 ```
-.
-├── api
-|   └── book
-|      └── v1
-|        └── book.proto         # .proto file sample
-├── docs
-|   └── generated
-|      └── template.gotmpl      # doc api template
-├── .gitignore
-├── book.config.swagger.yaml   # swagger config file
-├── buf.gen.yaml 
-├── buf.work.yaml 
-├── buf.yaml
-├── Dockerfile
-├── docker-compose.yaml
-├── License.md
-├── Makefile
-└── README.md
+api/book/v1/book.proto     # Example .proto file
+docs/generated/
+  template.gotmpl            # Doc API template
+book.config.swagger.yaml     # Swagger config
+buf.gen.yaml                 # Code generation config (v2)
+buf.work.yaml
+buf.yaml                     # Buf config (v2)
+Dockerfile                   # Multi-stage build
+docker-compose.yaml
+Makefile
+README.md
 ```
 
 - [buf-gen-yaml](https://docs.buf.build/configuration/v1/buf-gen-yaml)
@@ -143,9 +136,9 @@ make docker-buf
 
 ## Version Information
 
-- **Buf**: 1.49.0
-- **Go**: 1.25
-- **Node**: Alpine (latest)
+- **Buf**: 1.71.0
+- **Go**: 1.26
+- **Node**: 22 Alpine
 - **Configuration**: v2 format
 
 ## Contributing
