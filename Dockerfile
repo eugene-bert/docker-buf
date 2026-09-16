@@ -20,7 +20,7 @@ WORKDIR /usr/app
 COPY package.json /usr/app/package.json
 RUN npm install
 
-FROM bufbuild/buf:1.71.0 AS buf
+FROM bufbuild/buf:1.73.0 AS buf
 
 # Copy Go binaries from golang stage
 COPY --from=golang /go/bin /go/bin
