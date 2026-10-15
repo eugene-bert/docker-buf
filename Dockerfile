@@ -14,7 +14,7 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11 && \
     go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@v1.5.1 && \
     go install github.com/eugene-bert/protoc-gen-bruno@v0.5.4
 
-FROM node:22-alpine AS node
+FROM node:25-alpine AS node
 
 WORKDIR /usr/app
 COPY package.json /usr/app/package.json
